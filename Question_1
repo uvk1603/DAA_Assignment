@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+int median(int a[][100],int r,int c)
+{
+        int n=r*c;
+        int arr[n],index=0,i,j;
+        for(i=0;i<r;i++)
+        {
+            for(j=0;j<c;j++)
+            {
+                arr[index]=a[i][j];
+                index++;
+            }
+        }
+        sort(arr,arr+n);
+        int mid=n/2;
+        if(n%2==1)
+            return arr[n/2];
+        else
+            return arr[n/2]+arr[n/2+1];
+}
+int main()
+{
+  int r,c,i,j;
+  cin>>r>>c;
+  int a[100][100];
+  for(i=0;i<r;i++)
+    for(j=0;j<c;j++)
+        cin>>a[i][j];
+  cout<<median(a,r,c);
+  return 0;
+}
